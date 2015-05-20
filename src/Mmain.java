@@ -1,10 +1,16 @@
 /**
  * Created by student on 08.04.2015.
  */
+import java.io.IOException;
 import java.util.Scanner;
 public class Mmain {
     public static void main(String[] args) {
         AdrBook Book1= new AdrBook();
+        try {
+            Book1.load("Book1.txt");
+        } catch (IOException e) {
+            System.out.println("Файл не найден, книга пустая");
+        }
         while(true){
             System.out.println("Адресная книга. Выберите команду:\n" +
                     "1.Добавление записи (дополнительно запрашивается имя, телефон и e-mail)\n" +
@@ -57,13 +63,15 @@ public class Mmain {
                     Book1.change((cha-1), new Address(c1,c2,c3));
                     break;
                 case 6:
-                    return;
+                    try {
+                        Book1.save("Book1.txt");
+                        return;
+                    } catch (IOException e) {
+                        System.out.println("Не удалось сохранить в файл, попробуйте другой путь");
+                    }
 
             }
         }
-        //Book1.add(new Address("A","123","etc"));
-        //Book1.add(new Address("B","321","cte"));
-        //Book1.print();
-        //Book1.findName("A");
+
     }
 }
