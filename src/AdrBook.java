@@ -37,6 +37,10 @@ public class AdrBook {
         book[count-1]=null;
         count--;
     }
+    public void change(int changeIndex, Address AddAddress){
+        book[changeIndex] = AddAddress;
+    }
+
     public Address getIndex(int Index){
         return book[Index];
     }

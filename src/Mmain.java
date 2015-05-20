@@ -45,6 +45,17 @@ public class Mmain {
                     Book1.delete(del-1);
                     System.out.println("Запись №"+del+" удалена.");
                     break;
+                case 5:
+                    System.out.println("Введите номер изменяемой записи: ");
+                    int cha = in.nextInt();
+                    System.out.println("Введите имя: ");
+                    String c1 = in.next();
+                    System.out.println("Введите номер: ");
+                    String c2 = in.next();
+                    System.out.println("Введите дополнительную информацию: ");
+                    String c3 = in.next();
+                    Book1.change((cha-1), new Address(c1,c2,c3));
+                    break;
                 case 6:
                     return;
 
